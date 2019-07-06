@@ -44,7 +44,8 @@ public class DBStarter implements ApplicationRunner {
         int id = Integer.parseInt(string[0]);
         String email = string[1];
         String nick = string[2];
-        User user = new User(email, nick);
+        User user = new User(nick, email);
+        userRepository.save(user);
 
 
 
