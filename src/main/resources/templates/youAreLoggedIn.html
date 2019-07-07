@@ -23,31 +23,20 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css"
           rel="stylesheet">
-    <title>login page</title>
+
+    <title>logged in</title>
 </head>
 <body>
+
 <div class="container-fluid">
     <div class="row">
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-<H1>strona logowania</H1>
-<form>
-    <p>nickname</p><input type="text">
-    <p>password</p><input type="text">
-    <input type="submit">
-    <!--uzytkownik podaje nick i haslo, dane sa sprawdzane w bazie USER czy istnieja
-    jesli tak to uzytkownik zostaje przekierowany do swojego panelu youAreLoggedIn.html w innym
-    wypadku zostanie zwrocony komunikat z serwera o nieprawidlowych danych-->
 
+            <h1>you are logged in</h1>
+            <h2>as a: <!--dane uzytkownika po zalogowaniu--></h2>
+            <a href="youAreLoggedOut.html">logout</a>
+            <!--po kliknieciu linku logout uzytkownik zostaje przekierowany na strone wylogowanego uzytkownika-->
 
-    <p><a href="newUser.html">I'm new user</a></p>
-    <!--jestem nowym uzytkownikiem i zostane przekierowany do panelu rejestracji-->
-
-    <p><a href="password.html">I'v forgotten my password</a></p>
-    <!--zapomnialem hasla i zostane przekierowany do panelu odnowienia hasla
-    uztkownik otrzyma maila z nowym haslem lub linkiem do panelu zmiany hasla-->
-
-    <a href="index.html">powrot do strony glownej</a>
-</form>
         </main>
     </div>
 </div>

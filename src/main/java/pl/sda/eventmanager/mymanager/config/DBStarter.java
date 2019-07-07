@@ -9,6 +9,8 @@ import pl.sda.eventmanager.mymanager.repository.UserRepository;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Optional;
 
 @Component
 public class DBStarter implements ApplicationRunner {
@@ -39,13 +41,53 @@ public class DBStarter implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception{
 
         BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv"));
-        String readLine = bufferedReader.readLine();
+        /*String readLine = bufferedReader.readLine();
         String[] string = readLine.split(" ");
         int id = Integer.parseInt(string[0]);
         String email = string[1];
         String nick = string[2];
         User user = new User(nick, email);
         userRepository.save(user);
+        System.out.println(user.toString());*/
+
+        /**czytanie z pliku testUsers.csv danych przykladowych userow*/
+
+        for (int i = 0; i < 10; i++) {
+            String readLine = bufferedReader.readLine();
+            String[] string = readLine.split(" ");
+            int id = Integer.parseInt(string[0]);
+            String email = string[1];
+            String nick = string[2];
+            User user = new User(nick, email);
+            userRepository.save(user);
+            System.out.println(user.toString());
+        }
+
+        /*BufferedReader bufferedReader;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv"));
+            String readLine;
+            do {
+                readLine = bufferedReader.readLine();
+                String[] string = readLine.split(" ");
+                int id = Integer.parseInt(string[0]);
+                String email = string[1];
+                String nick = string[2];
+                User user = new User(nick, email);
+                userRepository.save(user);
+                System.out.println(user.toString());
+            } while (readLine != null);
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+*/
+
+
+
+
 
 
 
