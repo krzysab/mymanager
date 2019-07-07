@@ -29,16 +29,20 @@
 <div class="container-fluid">
     <div class="row">
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-<h1>new user</h1>
-<form>
-    <p>nick</p><input type="text">
-    <p>email</p><input type="email">
-    <input type="submit">
-    <!--uzytkownik podaje nicka i emaila jesli jedno z pol istnieje w bazie danych
-    uzytkownik otrzyma z serwera informacje o istniejacych danych, bedzie wiedziec ktore
-    z pol istnieje-->
-    <a href="login.html">powrot do strony logowania</a>
-</form>
+            <h1>new user</h1>
+            <!--uzytkownik podaje dane, jesli istnieja to zostanie poproszony o podanie innych w innym
+            wypadku uzytkownik zostanie stworzony i zostanie poproszony o zalogowanie sie przez
+            panel logowania, zostanie tam przekierowany-->
+                <form>
+                    <p>nick</p><input type="text">
+                    <p>email</p><input type="email">
+                    <input type="submit">
+                    <!--uzytkownik podaje nicka i emaila jesli jedno z pol istnieje w bazie danych
+                    uzytkownik otrzyma z serwera informacje o istniejacych danych, bedzie wiedziec ktore
+                    z pol istnieje-->
+                    <!--ewentualnie po wyslaniu danych trzeba bedzie samemu nacisnac link do logowania-->
+                    <p><a href="login.html">powrot do strony logowania</a></p>
+                </form>
         </main>
     </div>
 </div>
