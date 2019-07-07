@@ -32,7 +32,7 @@
             <H1>strona logowania</H1>
             <!--uzytkownik poda wszystkie dane a nastepnie zostana one sprawdzone w bazie danych czh istnieja
             jesli tak to uzystkownik zostanie zalogowany do swojego kona-->
-                <form action="#" th:action="@{/addContact}" th:object="${contact}" method="post">
+                <form action="#" th:action="@{/loginVerify}" th:object="${users}" method="post">
                     <p>nickname</p><input type="text">
                     <p>password</p><input type="password">
                     <input type="submit"><input type="reset" value="Reset" />

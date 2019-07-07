@@ -1,13 +1,14 @@
 package pl.sda.eventmanager.mymanager.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+@Component
 public class UserService {
 
     private final UserRepository userRepository;
