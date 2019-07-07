@@ -25,10 +25,44 @@ public class EventController /*implements ApplicationRunner*/ {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    //@ResponseBody
+    @GetMapping("/index")
     ModelAndView getIndex() {
+        return new ModelAndView("index");
+    }
+
+    @GetMapping("/login")
+    ModelAndView getLogin() {
         return new ModelAndView("login");
+    }
+
+    @GetMapping("/delete")
+    ModelAndView getDelete() {
+        return new ModelAndView("delete");
+    }
+
+    @GetMapping("/newUser")
+    ModelAndView getNewUser() {
+        return new ModelAndView("newUser");
+    }
+
+    @GetMapping("/password")
+    ModelAndView getPasswor() {
+        return new ModelAndView("password");
+    }
+
+    @GetMapping("/settings")
+    ModelAndView getSettings() {
+        return new ModelAndView("settings");
+    }
+
+    @GetMapping("/youAreLoggedIn")
+    ModelAndView getYouAreLoggedIn() {
+        return new ModelAndView("youAreLoggedIn");
+    }
+
+    @GetMapping("/youAreLoggedOut")
+    ModelAndView getYouAreLoggedOut() {
+        return new ModelAndView("youAreLoggedOut");
     }
 
     /*@GetMapping("/")
