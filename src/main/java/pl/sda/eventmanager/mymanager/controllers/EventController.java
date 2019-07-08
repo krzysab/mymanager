@@ -25,6 +25,11 @@ public class EventController /*implements ApplicationRunner*/ {
         this.userService = userService;
     }
 
+    @GetMapping("/")
+    ModelAndView getHome() {
+        return new ModelAndView("index");
+    }
+
     @GetMapping("/index")
     ModelAndView getIndex() {
         return new ModelAndView("index");
