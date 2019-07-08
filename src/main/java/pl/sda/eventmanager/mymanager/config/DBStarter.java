@@ -39,8 +39,37 @@ public class DBStarter implements ApplicationRunner {
     }*/
 
     public void run(ApplicationArguments args) throws Exception{
+        userRepository.save(new User("adam", "adam@gmail.com"));
+        userRepository.save(new User("kasia", "kasia@yahoo.com"));
+        userRepository.save(new User("marcin", "marcin@yahoo.com"));
+        userRepository.save(new User("monika", "monika@yahoo.com"));
+        userRepository.save(new User("jakub", "jakub@yahoo.com"));
+        userRepository.save(new User("agnieszka", "agnieszka@mail.com"));
+        userRepository.save(new User("kamil", "kamil@mail.com"));
+        userRepository.save(new User("iza", "iza@yahoo.com"));
+        userRepository.save(new User("adrian", "adrian@gmail.com"));
+        userRepository.save(new User("renata", "ranata@yahoo.com"));
 
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv"));
+        /**
+         *
+         *         1 adam@mail.com adam
+         *         2 kasia@yahoo.com kasia
+         *         3 marcin@yahoo.com marcin
+         *         4 monika@yahoo.com monika
+         *         5 jakub@yahoo.com jakub
+         *         6 agnieszka@mail.com agnieszka
+         *         7 kamil@mail.com kamil
+         *         8 iza@yahoo.com iza
+         *         9 adrian@gmail.com adrian
+         *         10 ranata@yahoo.com renata
+         *
+         * */
+
+    }
+
+//    public void run(ApplicationArguments args) throws Exception{
+
+//        BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv"));
         /*String readLine = bufferedReader.readLine();
         String[] string = readLine.split(" ");
         int id = Integer.parseInt(string[0]);
@@ -52,7 +81,7 @@ public class DBStarter implements ApplicationRunner {
 
         /**czytanie z pliku testUsers.csv danych przykladowych userow*/
 
-        for (int i = 0; i < 10; i++) {
+        /*for (int i = 0; i < 10; i++) {
             String readLine = bufferedReader.readLine();
             String[] string = readLine.split(" ");
             int id = Integer.parseInt(string[0]);
@@ -61,7 +90,7 @@ public class DBStarter implements ApplicationRunner {
             User user = new User(nick, email);
             userRepository.save(user);
             System.out.println(user.toString());
-        }
+        }*/
 
         /*BufferedReader bufferedReader;
         try {
@@ -107,5 +136,5 @@ public class DBStarter implements ApplicationRunner {
             System.out.println("id " + rs.getInt("id") + " nick " + rs.getString("nick") + " email " + rs.getInt("email") );
         }
         stmt.close();*/
-    }
+//    }
 }
