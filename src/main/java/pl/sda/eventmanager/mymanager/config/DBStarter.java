@@ -5,6 +5,7 @@ package pl.sda.eventmanager.mymanager.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.sda.eventmanager.mymanager.model.Event;
 import pl.sda.eventmanager.mymanager.model.User;
@@ -48,7 +49,10 @@ public class DBStarter implements ApplicationRunner {
     }*/
 
     public void run(ApplicationArguments args) throws Exception{
-        userRepository.save(new User("adam", "adam@gmail.com", "1111"));
+
+        BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
+
+        userRepository.save(new User("admin", "admin@gmail.com", bCrypt.encode("1111")));
         userRepository.save(new User("kasia", "kasia@yahoo.com", "2222"));
         userRepository.save(new User("marcin", "marcin@yahoo.com", "3333"));
         userRepository.save(new User("monika", "monika@yahoo.com", "4444"));

@@ -1,6 +1,9 @@
 package pl.sda.eventmanager.mymanager.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import pl.sda.eventmanager.mymanager.model.User;
@@ -9,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
@@ -36,5 +39,21 @@ public class UserService {
 
     public Optional<User> getConcatById(int id) {
         return userRepository.findById(id);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+
+//        UserDetails userDetails = userRepository.findByNick(s);
+
+        Optional<User> userDetails = userRepository.findByNick(s);
+        return userDetails.orElseThrow(()->new UsernameNotFoundException("nick not found"));
+
+
+//        if(userDetails!=null){
+//            return userDetails;
+//        } else {
+//            throw new UsernameNotFoundException("nick not found");
+//        }
     }
 }
