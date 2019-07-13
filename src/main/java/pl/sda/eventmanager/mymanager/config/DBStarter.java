@@ -53,15 +53,15 @@ public class DBStarter implements ApplicationRunner {
         BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
 
         userRepository.save(new User("admin", "admin@gmail.com", bCrypt.encode("1111")));
-        userRepository.save(new User("kasia", "kasia@yahoo.com", "2222"));
-        userRepository.save(new User("marcin", "marcin@yahoo.com", "3333"));
-        userRepository.save(new User("monika", "monika@yahoo.com", "4444"));
-        userRepository.save(new User("jakub", "jakub@yahoo.com", "5555"));
-        userRepository.save(new User("agnieszka", "agnieszka@mail.com", "6666"));
-        userRepository.save(new User("kamil", "kamil@mail.com", "7777"));
-        userRepository.save(new User("iza", "iza@yahoo.com", "8888"));
-        userRepository.save(new User("adrian", "adrian@gmail.com", "9999"));
-        userRepository.save(new User("renata", "ranata@yahoo.com", "0000"));
+        userRepository.save(new User("kasia", "kasia@yahoo.com", bCrypt.encode("2222")));
+        userRepository.save(new User("marcin", "marcin@yahoo.com", bCrypt.encode("3333")));
+        userRepository.save(new User("monika", "monika@yahoo.com", bCrypt.encode("4444")));
+        userRepository.save(new User("jakub", "jakub@yahoo.com", bCrypt.encode("5555")));
+        userRepository.save(new User("agnieszka", "agnieszka@mail.com", bCrypt.encode("6666")));
+        userRepository.save(new User("kamil", "kamil@mail.com", bCrypt.encode("7777")));
+        userRepository.save(new User("iza", "iza@yahoo.com", bCrypt.encode("8888")));
+        userRepository.save(new User("adrian", "adrian@gmail.com", bCrypt.encode("9999")));
+        userRepository.save(new User("renata", "ranata@yahoo.com", bCrypt.encode("0000")));
 
         /**
          *
