@@ -7,11 +7,6 @@ import org.springframework.stereotype.Component;
 import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Optional;
-
 @Component
 public class DBStarter implements ApplicationRunner {
 
@@ -39,29 +34,29 @@ public class DBStarter implements ApplicationRunner {
     }*/
 
     public void run(ApplicationArguments args) throws Exception{
-        userRepository.save(new User("adam", "adam@gmail.com"));
-        userRepository.save(new User("kasia", "kasia@yahoo.com"));
-        userRepository.save(new User("marcin", "marcin@yahoo.com"));
-        userRepository.save(new User("monika", "monika@yahoo.com"));
-        userRepository.save(new User("jakub", "jakub@yahoo.com"));
-        userRepository.save(new User("agnieszka", "agnieszka@mail.com"));
-        userRepository.save(new User("kamil", "kamil@mail.com"));
-        userRepository.save(new User("iza", "iza@yahoo.com"));
-        userRepository.save(new User("adrian", "adrian@gmail.com"));
-        userRepository.save(new User("renata", "ranata@yahoo.com"));
+        userRepository.save(new User("adam", "adam@gmail.com", "1111"));
+        userRepository.save(new User("kasia", "kasia@yahoo.com", "2222"));
+        userRepository.save(new User("marcin", "marcin@yahoo.com", "3333"));
+        userRepository.save(new User("monika", "monika@yahoo.com", "4444"));
+        userRepository.save(new User("jakub", "jakub@yahoo.com", "5555"));
+        userRepository.save(new User("agnieszka", "agnieszka@mail.com", "6666"));
+        userRepository.save(new User("kamil", "kamil@mail.com", "7777"));
+        userRepository.save(new User("iza", "iza@yahoo.com", "8888"));
+        userRepository.save(new User("adrian", "adrian@gmail.com", "9999"));
+        userRepository.save(new User("renata", "ranata@yahoo.com", "0000"));
 
         /**
          *
-         *         1 adam@mail.com adam
-         *         2 kasia@yahoo.com kasia
-         *         3 marcin@yahoo.com marcin
-         *         4 monika@yahoo.com monika
-         *         5 jakub@yahoo.com jakub
-         *         6 agnieszka@mail.com agnieszka
-         *         7 kamil@mail.com kamil
-         *         8 iza@yahoo.com iza
-         *         9 adrian@gmail.com adrian
-         *         10 ranata@yahoo.com renata
+         *         1 adam@mail.com adam 1111
+         *         2 kasia@yahoo.com kasia 2222
+         *         3 marcin@yahoo.com marcin 3333
+         *         4 monika@yahoo.com monika 4444
+         *         5 jakub@yahoo.com jakub 5555
+         *         6 agnieszka@mail.com agnieszka 6666
+         *         7 kamil@mail.com kamil 7777
+         *         8 iza@yahoo.com iza 8888
+         *         9 adrian@gmail.com adrian 9999
+         *         10 ranata@yahoo.com renata 0000
          *
          * */
 
@@ -113,12 +108,6 @@ public class DBStarter implements ApplicationRunner {
             e.printStackTrace();
         }
 */
-
-
-
-
-
-
 
         /*Connection conn = null;
         Statement stmt = null;

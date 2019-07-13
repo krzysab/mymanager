@@ -1,9 +1,7 @@
 package pl.sda.eventmanager.mymanager.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -11,11 +9,20 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @GeneratedValue
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotNull
+    @Column(name = "nick")
     private String nick;
+
+    @NotNull
+    @Column(name = "email")
     private String email;
+
+    @NotNull
+    @Column(name = "password")
     private String password;
 
     public User() {

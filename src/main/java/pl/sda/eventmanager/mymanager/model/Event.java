@@ -1,9 +1,7 @@
 package pl.sda.eventmanager.mymanager.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.Objects;
 
@@ -12,13 +10,28 @@ import java.util.Objects;
 public class Event {
 
     @Id
-    @GeneratedValue
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
+    @NotNull
+    @Column(name = "eventName")
     private String eventName;
+
+    @NotNull
+    @Column(name = "eventBegin")
     private LocalDate eventBegin;
+
+    @NotNull
+    @Column(name = "eventEnd")
     private LocalDate eventEnd;
+
+    @NotNull
+    @Column(name = "eventAddress")
     private String eventAddress;
+
+    @NotNull
+    @Column(name = "eventInfo")
     private String eventInfo;
 
     public Event() {
