@@ -1,5 +1,7 @@
 package pl.sda.eventmanager.mymanager.config;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -8,7 +10,9 @@ import pl.sda.eventmanager.mymanager.model.Event;
 import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.EvetnRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
-import java.util.Date;
+
+import java.time.LocalDate;
+
 
 @Component
 public class DBStarter implements ApplicationRunner {
@@ -72,19 +76,19 @@ public class DBStarter implements ApplicationRunner {
 
         evetnRepository.save(
                 new Event("runmageddon",
-                        new Date(2019, 12, 20),
+                        LocalDate.of(2019, 12, 20),
                         "43-100 Tychy Niepodleglosci 50"));
         evetnRepository.save(
                 new Event("masakrator",
-                        new Date(1999, 11, 03),
+                        LocalDate.of(1999, 11, 03),
                 "43-190 Laziska Gorne Orzeska 23"));
         evetnRepository.save(
                 new Event("bieg komandosa",
-                        new Date(2003, 04, 27),
+                        LocalDate.of(2003, 04, 27),
                         "45-230 Warszawa Marszalkowska 45"));
         evetnRepository.save(
                 new Event("masakrator",
-                        new Date(2007, 05, 31),
+                        LocalDate.of(2007, 05, 31),
                         "99-400 Krakow Wawelska 330"));
 
 

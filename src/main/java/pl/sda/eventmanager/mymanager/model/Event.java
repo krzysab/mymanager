@@ -1,8 +1,10 @@
 package pl.sda.eventmanager.mymanager.model;
 
+
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
@@ -20,10 +22,10 @@ public class Event {
 
     @NotNull
     @Column(name = "eventBegin")
-    private Date eventBegin;
+    private LocalDate eventBegin;
 
     @Column(name = "eventEnd")
-    private Date eventEnd;
+    private LocalDate eventEnd;
 
     @NotNull
     @Column(name = "eventAddress")
@@ -35,7 +37,7 @@ public class Event {
     public Event() {
     }
 
-    public Event(@NotNull String eventName, @NotNull Date eventBegin, @NotNull String eventAddress) {
+    public Event(@NotNull String eventName, @NotNull LocalDate eventBegin, @NotNull String eventAddress) {
         this.eventName = eventName;
         this.eventBegin = eventBegin;
         this.eventAddress = eventAddress;
@@ -57,19 +59,19 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public Date getEventBegin() {
+    public LocalDate getEventBegin() {
         return eventBegin;
     }
 
-    public void setEventBegin(Date eventBegin) {
+    public void setEventBegin(LocalDate eventBegin) {
         this.eventBegin = eventBegin;
     }
 
-    public Date getEventEnd() {
+    public LocalDate getEventEnd() {
         return eventEnd;
     }
 
-    public void setEventEnd(Date eventEnd) {
+    public void setEventEnd(LocalDate eventEnd) {
         this.eventEnd = eventEnd;
     }
 
