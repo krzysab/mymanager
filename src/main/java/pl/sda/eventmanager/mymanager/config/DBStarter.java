@@ -4,17 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+import pl.sda.eventmanager.mymanager.model.Event;
 import pl.sda.eventmanager.mymanager.model.User;
+import pl.sda.eventmanager.mymanager.repository.EvetnRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
+import java.util.Date;
 
 @Component
 public class DBStarter implements ApplicationRunner {
 
     private UserRepository userRepository;
+    private EvetnRepository evetnRepository;
+
+//    @Autowired
+//    protected DBStarter(UserRepository userRepository){
+//        this.userRepository = userRepository;
+//    }
 
     @Autowired
-    protected DBStarter(UserRepository userRepository){
+    public DBStarter(UserRepository userRepository, EvetnRepository evetnRepository) {
         this.userRepository = userRepository;
+        this.evetnRepository = evetnRepository;
     }
 
     /*@Override
@@ -59,6 +69,24 @@ public class DBStarter implements ApplicationRunner {
          *         10 ranata@yahoo.com renata 0000
          *
          * */
+
+        evetnRepository.save(
+                new Event("runmageddon",
+                        new Date(2019, 12, 20),
+                        "43-100 Tychy Niepodleglosci 50"));
+        evetnRepository.save(
+                new Event("masakrator",
+                        new Date(1999, 11, 03),
+                "43-190 Laziska Gorne Orzeska 23"));
+        evetnRepository.save(
+                new Event("bieg komandosa",
+                        new Date(2003, 04, 27),
+                        "45-230 Warszawa Marszalkowska 45"));
+        evetnRepository.save(
+                new Event("masakrator",
+                        new Date(2007, 05, 31),
+                        "99-400 Krakow Wawelska 330"));
+
 
     }
 

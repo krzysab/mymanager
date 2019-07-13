@@ -9,7 +9,7 @@ import java.util.Objects;
 public class User {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "idUsers")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
@@ -28,7 +28,7 @@ public class User {
     public User() {
     }
 
-    public User(String nick, String email, String password) {
+    public User(@NotNull String nick, @NotNull String email, @NotNull String password) {
         this.nick = nick;
         this.email = email;
         this.password = password;

@@ -2,7 +2,7 @@ package pl.sda.eventmanager.mymanager.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -10,7 +10,7 @@ import java.util.Objects;
 public class Event {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "idEvents")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
@@ -20,21 +20,25 @@ public class Event {
 
     @NotNull
     @Column(name = "eventBegin")
-    private LocalDate eventBegin;
+    private Date eventBegin;
 
-    @NotNull
     @Column(name = "eventEnd")
-    private LocalDate eventEnd;
+    private Date eventEnd;
 
     @NotNull
     @Column(name = "eventAddress")
     private String eventAddress;
 
-    @NotNull
     @Column(name = "eventInfo")
     private String eventInfo;
 
     public Event() {
+    }
+
+    public Event(@NotNull String eventName, @NotNull Date eventBegin, @NotNull String eventAddress) {
+        this.eventName = eventName;
+        this.eventBegin = eventBegin;
+        this.eventAddress = eventAddress;
     }
 
     public int getId() {
@@ -53,19 +57,19 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public LocalDate getEventBegin() {
+    public Date getEventBegin() {
         return eventBegin;
     }
 
-    public void setEventBegin(LocalDate eventBegin) {
+    public void setEventBegin(Date eventBegin) {
         this.eventBegin = eventBegin;
     }
 
-    public LocalDate getEventEnd() {
+    public Date getEventEnd() {
         return eventEnd;
     }
 
-    public void setEventEnd(LocalDate eventEnd) {
+    public void setEventEnd(Date eventEnd) {
         this.eventEnd = eventEnd;
     }
 
