@@ -52,11 +52,34 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(id);
     }
 
+    //TODO pracuje nad odczytaniem emaila z bazy danych i wswietlenie go po zalogowaniu
+    public String readUserEmail(User user) {
+        //String string = userRepository.findByNick(user.getNick()).get().getEmail();
+        //return user.getEmail();
+        return userRepository.findByNick(user.getNick()).get().getEmail();
+    }
+
+//    public String readUserEmail(String nick, String password) {
+//        return userRepository.readUserByNickAndPassword(nick, password);
+//    }
+
+//    public String readUserEmail (String nick) {
+//        return readUserEmail(nick);
+//    }
 
     @Override
-    public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String nick) throws UsernameNotFoundException {
 
-        Optional<User> userDetails = userRepository.findByNick(s);
+        Optional<User> userDetails = userRepository.findByNick(nick);
         return userDetails.orElseThrow(()->new UsernameNotFoundException("nick not found"));
     }
+
+    //TODO sprawdzic czy ta metoda wogole dziala
+    public Optional<User> loadUserByEmail(String email) throws UsernameNotFoundException {
+        return Optional
+                .ofNullable(userRepository
+                .findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("email not found")));
+    }
+
+
 }

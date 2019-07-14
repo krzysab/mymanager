@@ -35,7 +35,9 @@
             <h1>you are logged in</h1>
             <h6><p th:text="'NICKname: ' + ${user.nick}" /></h6>
             <h6><p th:text="'PASSWORD: ' + ${user.password}" /></h6>
-            <!--<h6><p th:text="'Email: ' + ${user.emial}" /></h6>-->
+<!--
+            <h6><p th:text="'Email: ' + ${user.getEamil()}" /></h6>
+-->
             <p><a th:href="settings">ustawienia uzytkownika</a></p>
             <!--po kliknieciu uzytkownik zostaje przekierowany na swoja strone ustawien w tym zmiany hasla-->
             <p><a th:href="youAreLoggedOut">logout</a></p>

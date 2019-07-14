@@ -37,18 +37,15 @@ public class EventController /*implements ApplicationRunner*/ {
 //    }
 
 
-    @GetMapping("/login")
-    String loginIn(@ModelAttribute User user) {
-    return "login";
-}
-
-    @PostMapping("/login")
-    public String loginSubmit(@ModelAttribute User user){
-        return "youAreLoggedIn";
-    }
-
-
-
+//    @GetMapping("/login")
+//    String loginIn(@ModelAttribute User user) {
+//    return "login";
+//}
+//
+//    @PostMapping("/login")
+//    public String loginSubmit(@ModelAttribute User user){
+//        return "youAreLoggedIn";
+//    }
 
     @GetMapping("/")
     ModelAndView getHome() {
