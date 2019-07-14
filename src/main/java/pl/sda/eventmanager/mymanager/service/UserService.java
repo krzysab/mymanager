@@ -4,26 +4,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Service
 public class UserService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public User addUser(User user){
-        return userRepository.save(user);
+    @Transactional
+    public void saveNewUser(String nick, String email, String password) {
+        final User newUser = new User();
+        newUser.setNick(nick);
+        newUser.setEmail(email);
+        newUser.setPassword(passwordEncoder.encode(password));
+        userRepository.save(newUser);
     }
+
+    //Todo przerobic pozostale metody czytajace z bazy dancyh
 
     public List<User> getUsers(){
         return userRepository.findAll();
@@ -40,6 +51,7 @@ public class UserService implements UserDetailsService {
     public Optional<User> getConcatById(int id) {
         return userRepository.findById(id);
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {

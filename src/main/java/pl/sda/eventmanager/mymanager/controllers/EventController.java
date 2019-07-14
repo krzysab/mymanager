@@ -25,6 +25,31 @@ public class EventController /*implements ApplicationRunner*/ {
         this.userService = userService;
     }
 
+//    @PostMapping("/addContact")
+//    public String addContactSubmit(@ModelAttribute Contact contact) {
+//        Contact newContact = contactService.addContact(contact);
+//        return "result";
+//    }
+//
+//    @GetMapping("/addContact")
+//    String addContactGet(@ModelAttribute Contact contact){
+//        return "addContact";
+//    }
+
+
+    @GetMapping("/login")
+    String loginIn(@ModelAttribute User user) {
+    return "login";
+}
+
+    @PostMapping("/login")
+    public String loginSubmit(@ModelAttribute User user){
+        return "youAreLoggedIn";
+    }
+
+
+
+
     @GetMapping("/")
     ModelAndView getHome() {
         return new ModelAndView("index");
@@ -33,11 +58,6 @@ public class EventController /*implements ApplicationRunner*/ {
     @GetMapping("/index")
     ModelAndView getIndex() {
         return new ModelAndView("index");
-    }
-
-    @GetMapping("/login")
-    ModelAndView getLogin() {
-        return new ModelAndView("login");
     }
 
     @GetMapping("/delete")
