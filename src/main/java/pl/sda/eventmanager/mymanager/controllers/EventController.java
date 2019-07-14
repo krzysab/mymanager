@@ -77,10 +77,10 @@ public class EventController /*implements ApplicationRunner*/ {
         return new ModelAndView("settings");
     }
 
-    @GetMapping("/youAreLoggedIn")
-    ModelAndView getYouAreLoggedIn() {
-        return new ModelAndView("youAreLoggedIn");
-    }
+//    @GetMapping("/youAreLoggedIn")
+//    ModelAndView getYouAreLoggedIn() {
+//        return new ModelAndView("youAreLoggedIn");
+//    }
 
     @GetMapping("/youAreLoggedOut")
     ModelAndView getYouAreLoggedOut() {

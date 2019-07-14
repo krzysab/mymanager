@@ -33,12 +33,20 @@ public class SecurityAdminConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
+                //.antMatchers("/").permitAll()
                 .antMatchers("/youAreLoggedIn").authenticated()
                 //.antMatchers(HttpMethod.POST, "/test").authenticated()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
-                .antMatchers("/register").permitAll()
+//                .antMatchers("/register").permitAll()
                 .and().csrf().disable().cors().disable()
-                .userDetailsService(userDetailsService).httpBasic();
+                .userDetailsService(userDetailsService).httpBasic()
+                .and()
+                .formLogin()
+                .defaultSuccessUrl("/youAreLoggedIn")
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .usernameParameter("nick")
+                .passwordParameter("password");
 //
 //        http.httpBasic();
 //        http.authorizeRequests()
@@ -49,7 +57,7 @@ public class SecurityAdminConfig extends WebSecurityConfigurerAdapter {
 
 //        http.formLogin()
 //                .loginPage("login")
-//                .failureForwardUrl("login")
+//                .failureForwardUrl("failedLogin")
 //                .successForwardUrl("youAreLoggedIn");
 //
 //        http.logout()
@@ -60,9 +68,9 @@ public class SecurityAdminConfig extends WebSecurityConfigurerAdapter {
 //                .logoutSuccessHandler(handler());
     }
 
-    private LogoutSuccessHandler handler() {
-        return null;
-    }
+//    private LogoutSuccessHandler handler() {
+//        return null;
+//    }
 
 
 }

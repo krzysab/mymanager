@@ -1,5 +1,6 @@
 package pl.sda.eventmanager.mymanager.service;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -8,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.sda.eventmanager.mymanager.model.LoginForm;
 import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import java.util.List;
@@ -52,20 +54,13 @@ public class UserService implements UserDetailsService {
         return userRepository.findById(id);
     }
 
-    //TODO pracuje nad odczytaniem emaila z bazy danych i wswietlenie go po zalogowaniu
     public String readUserEmail(User user) {
-        //String string = userRepository.findByNick(user.getNick()).get().getEmail();
-        //return user.getEmail();
         return userRepository.findByNick(user.getNick()).get().getEmail();
     }
 
-//    public String readUserEmail(String nick, String password) {
-//        return userRepository.readUserByNickAndPassword(nick, password);
-//    }
-
-//    public String readUserEmail (String nick) {
-//        return readUserEmail(nick);
-//    }
+    public String readLoginFormEmail(LoginForm loginForm) {
+        return userRepository.findByNick(loginForm.getNick()).get().getEmail();
+    }
 
     @Override
     public UserDetails loadUserByUsername(String nick) throws UsernameNotFoundException {
@@ -80,6 +75,5 @@ public class UserService implements UserDetailsService {
                 .ofNullable(userRepository
                 .findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("email not found")));
     }
-
 
 }

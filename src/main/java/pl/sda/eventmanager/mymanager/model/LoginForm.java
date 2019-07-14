@@ -7,23 +7,32 @@ import java.util.Objects;
 
 public class LoginForm {
 
-    private String login;
+    private String nick;
     private String password;
+    private String email;
 
     public LoginForm() {
     }
 
     public LoginForm(String login, String password) {
-        this.login = login;
+        this.nick = login;
         this.password = password;
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getPassword() {
@@ -39,20 +48,22 @@ public class LoginForm {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LoginForm loginForm = (LoginForm) o;
-        return Objects.equals(login, loginForm.login) &&
-                Objects.equals(password, loginForm.password);
+        return Objects.equals(nick, loginForm.nick) &&
+                Objects.equals(password, loginForm.password) &&
+                Objects.equals(email, loginForm.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(login, password);
+        return Objects.hash(nick, password, email);
     }
 
     @Override
     public String toString() {
         return "LoginForm{" +
-                "login='" + login + '\'' +
+                "login='" + nick + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

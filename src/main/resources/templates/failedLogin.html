@@ -23,30 +23,20 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css"
           rel="stylesheet">
-
-    <title>logged in</title>
+    <title>failed login</title>
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="row">
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+            <H1>Failed Login</H1>
 
-            <h1>you are logged in</h1>
-            <!--<h6><p th:text="'NICKname: ' + ${user.nick}" /></h6>
-            <h6><p th:text="'PASSWORD: ' + ${user.password}" /></h6>
-            <h6><p th:text="'EMAIL: ' + ${user.getEmail()}"}/></h6>-->
-            <!--<h6><p th:text="'NICKname: ' + ${loginForm.nick}" /></h6>
-            <h6><p th:text="'PASSWORD: ' + ${loginForm.password}" /></h6>
-            <h6><p th:text="'EMAIL: ' + ${loginForm.getEmail()}"}/></h6>-->
-            <h6><p th:text="'NICKname: ' + ${nick}" /></h6>
-            <h6><p th:text="'PASSWORD: ' + ${password}" /></h6>
-            <h6><p th:text="'EMAIL: ' + ${email}" /></h6>
-            <p><a th:href="settings">ustawienia uzytkownika</a></p>
-            <!--po kliknieciu uzytkownik zostaje przekierowany na swoja strone ustawien w tym zmiany hasla-->
-            <p><a th:href="youAreLoggedOut">logout</a></p>
-            <!--po kliknieciu linku logout uzytkownik zostaje przekierowany na strone wylogowanego uzytkownika-->
+                <p><a th:href="password">I'v forgotten my password</a></p>
+                <!--zapomnialem hasla i zostane przekierowany do panelu odnowienia hasla
+                uztkownik otrzyma maila z nowym haslem lub linkiem do panelu zmiany hasla-->
 
+                <p><a th:href="index">powrot do strony glownej</a></p>
+            </form>
         </main>
     </div>
 </div>

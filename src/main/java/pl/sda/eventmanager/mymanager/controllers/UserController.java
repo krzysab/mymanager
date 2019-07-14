@@ -2,17 +2,17 @@ package pl.sda.eventmanager.mymanager.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.eventmanager.mymanager.model.LoginForm;
-import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import pl.sda.eventmanager.mymanager.service.UserService;
 
-import java.util.logging.Logger;
+import java.util.Arrays;
 
 @Controller
 @ComponentScan("pl.sda.eventmanager.mymanager")
@@ -27,49 +27,34 @@ public class UserController {
         this.userService = userService;
     }
 
-//    @PostMapping("/addContact")
-//    public String addContactSubmit(@ModelAttribute Contact contact) {
-//        Contact newContact = contactService.addContact(contact);
-//        return "result";
-//    }
-//
-//    @GetMapping("/addContact")
-//    String addContactGet(@ModelAttribute Contact contact){
-//        return "addContact";
-//    }
-
-//    @GetMapping("/login")
-//    String loginIn(@ModelAttribute User user) {
-//        return "login";
+//    @GetMapping("login")
+//    public ModelAndView loginIn(){
+//        return new ModelAndView("login", "user", new User());
 //    }
 
     @GetMapping("login")
-    public ModelAndView loginIn(){
-        return new ModelAndView("login", "user", new User());
+    public ModelAndView loginInForm(){
+        return new ModelAndView("login", "loginForm", new LoginForm());
+    }
+
+    @GetMapping("youAreLoggedIn")
+    public ModelAndView logForm(Authentication authentication){
+        ModelAndView modelAndView = new ModelAndView("youAreLoggedIn"/*, "loginForm", new LoginForm()*/);
+        modelAndView.addObject("nick", Arrays.asList(authentication.getPrincipal()));
+        return modelAndView;
     }
 
 //    @PostMapping("login")
-//    public ModelAndView loginSubmit(){
-//        return new ModelAndView("youAreLoggedIn");
-//    }
-
-//    @PostMapping("/login")
-//    public String loginSubmit(@ModelAttribute User user){
+//    public String postSubmit(@ModelAttribute User user) {
+//        user.setEmail(userService.readUserEmail(user));
 //        return "youAreLoggedIn";
 //    }
 
-//    @GetMapping("newUser")
-//    public ModelAndView getNewUser() {
-//        return new ModelAndView("newUser", "user", new User());
-//    }
-//
-    @PostMapping("login")
-    public String postRegister(@ModelAttribute User user) {
-//        userRepository.findByNick(user.getNick());
-        System.out.println(userService.readUserEmail(user));
-//            userRepository.readUserByNickAndPassword(user.getNick(), user.getPassword());
-//        userService.readUserEmail(user.getNick());
-//        userService.saveNewUser(user.getNick(), user.getEmail(), user.getPassword());
+
+
+    @PostMapping("validation")
+    public String postSubitForm(@ModelAttribute LoginForm loginForm) {
+        loginForm.setEmail(userService.readLoginFormEmail(loginForm));
         return "youAreLoggedIn";
     }
 }
