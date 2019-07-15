@@ -1,4 +1,4 @@
-package pl.sda.eventmanager.mymanager.model;
+package pl.sda.eventmanager.mymanager.dto;
 
 //  @Data - adnotacja nie została użyta ponizej, jednakże jest zbiorem adnotacji
 //  @Getter, @Setter, @ToString, @EqualsAndHashCode

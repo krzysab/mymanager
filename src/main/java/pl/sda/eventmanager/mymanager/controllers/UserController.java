@@ -8,11 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
-import pl.sda.eventmanager.mymanager.model.LoginForm;
+import pl.sda.eventmanager.mymanager.dto.LoginForm;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import pl.sda.eventmanager.mymanager.service.UserService;
-
-import java.util.Arrays;
 
 @Controller
 @ComponentScan("pl.sda.eventmanager.mymanager")
@@ -39,8 +37,14 @@ public class UserController {
 
     @GetMapping("youAreLoggedIn")
     public ModelAndView logForm(Authentication authentication){
+
+        System.out.println("getAuthorities: " + authentication.getAuthorities());
+        System.out.println("getPrincipal: " + authentication.getPrincipal());
+        System.out.println("getDetails: " + authentication.getDetails());
+        System.out.println("isAuthenticated: " + authentication.isAuthenticated());
+
         ModelAndView modelAndView = new ModelAndView("youAreLoggedIn"/*, "loginForm", new LoginForm()*/);
-        modelAndView.addObject("nick", Arrays.asList(authentication.getPrincipal()));
+//        modelAndView.addObject("nick", Arrays.asList(authentication.getPrincipal()));
         return modelAndView;
     }
 
@@ -49,8 +53,6 @@ public class UserController {
 //        user.setEmail(userService.readUserEmail(user));
 //        return "youAreLoggedIn";
 //    }
-
-
 
     @PostMapping("validation")
     public String postSubitForm(@ModelAttribute LoginForm loginForm) {

@@ -1,8 +1,7 @@
-package pl.sda.eventmanager.mymanager.model;
+package pl.sda.eventmanager.mymanager.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import pl.sda.eventmanager.mymanager.repository.UserRepository;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -65,11 +64,16 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        //TODO: how to add authority
         return null;
     }
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -95,10 +99,6 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override

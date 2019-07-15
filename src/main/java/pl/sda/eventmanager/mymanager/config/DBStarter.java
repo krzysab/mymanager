@@ -1,19 +1,16 @@
 package pl.sda.eventmanager.mymanager.config;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
-import pl.sda.eventmanager.mymanager.model.Event;
-import pl.sda.eventmanager.mymanager.model.User;
+import pl.sda.eventmanager.mymanager.entity.Event;
+import pl.sda.eventmanager.mymanager.entity.User;
 import pl.sda.eventmanager.mymanager.repository.EvetnRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 
 import java.time.LocalDate;
-
 
 @Component
 public class DBStarter implements ApplicationRunner {

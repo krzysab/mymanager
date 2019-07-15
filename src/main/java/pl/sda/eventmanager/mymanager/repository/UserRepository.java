@@ -2,7 +2,7 @@ package pl.sda.eventmanager.mymanager.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pl.sda.eventmanager.mymanager.model.User;
+import pl.sda.eventmanager.mymanager.entity.User;
 
 import java.util.Optional;
 

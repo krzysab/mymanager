@@ -1,16 +1,14 @@
 package pl.sda.eventmanager.mymanager.service;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import pl.sda.eventmanager.mymanager.model.LoginForm;
-import pl.sda.eventmanager.mymanager.model.User;
+import pl.sda.eventmanager.mymanager.dto.LoginForm;
+import pl.sda.eventmanager.mymanager.entity.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import java.util.List;
 import java.util.Optional;

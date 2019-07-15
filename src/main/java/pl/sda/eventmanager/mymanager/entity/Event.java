@@ -1,4 +1,4 @@
-package pl.sda.eventmanager.mymanager.model;
+package pl.sda.eventmanager.mymanager.entity;
 
 
 

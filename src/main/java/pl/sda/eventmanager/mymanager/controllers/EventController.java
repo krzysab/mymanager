@@ -1,13 +1,9 @@
 package pl.sda.eventmanager.mymanager.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import pl.sda.eventmanager.mymanager.model.User;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import pl.sda.eventmanager.mymanager.service.UserService;
 import org.springframework.stereotype.Controller;
