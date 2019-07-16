@@ -50,7 +50,7 @@ public class DBStarter implements ApplicationRunner {
         BCryptPasswordEncoder bCrypt = new BCryptPasswordEncoder();
 
         userRepository.save(new User("admin", "admin@gmail.com", bCrypt.encode("1111")));
-        userRepository.save(new User("kasia", "kasia@yahoo.com", bCrypt.encode("2222")));
+        userRepository.save(new User("andzia", "andzia@yahoo.com", bCrypt.encode("2222")));
         userRepository.save(new User("marcin", "marcin@yahoo.com", bCrypt.encode("3333")));
         userRepository.save(new User("monika", "monika@yahoo.com", bCrypt.encode("4444")));
         userRepository.save(new User("jakub", "jakub@yahoo.com", bCrypt.encode("5555")));
