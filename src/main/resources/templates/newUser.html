@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -9,8 +9,7 @@
           content="">
     <meta name="author"
           content="">
-    <link rel="icon"
-          href="../../favicon.ico">
+    <!--<link rel="icon" href="../../favicon.ico">-->
 
     <title>Dashboard Template for Bootstrap</title>
 
@@ -21,8 +20,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link href="dashboard.css"
-          rel="stylesheet">
+    <!--<link href="dashboard.css" rel="stylesheet">-->
     <title>new user form</title>
 </head>
 <body>
@@ -34,8 +32,10 @@
             wypadku uzytkownik zostanie stworzony i zostanie poproszony o zalogowanie sie przez
             panel logowania, zostanie tam przekierowany-->
                 <form>
-                    <p>nick</p><input type="text">
+                    <p>nick</p><input type="text" >
                     <p>email</p><input type="email">
+                    <p>haslo</p><input type="password">
+                    <p>powtorz haslo</p><input type="password">
                     <input type="submit">
                     <!--uzytkownik podaje nicka i emaila jesli jedno z pol istnieje w bazie danych
                     uzytkownik otrzyma z serwera informacje o istniejacych danych, bedzie wiedziec ktore

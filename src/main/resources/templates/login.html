@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -9,8 +9,7 @@
           content="">
     <meta name="author"
           content="">
-    <link rel="icon"
-          href="../../favicon.ico">
+    <!--<link rel="icon" href="../../favicon.ico">-->
 
     <title>Dashboard Template for Bootstrap</title>
 
@@ -36,8 +35,8 @@
                     <p>nickname</p><input type="text" th:field="${user.nick}">
                     <p>password</p><input type="password" th:field="${user.password}">-->
             <form action="#" th:action="@{/login}" th:object="${loginForm}" method="post">
-                <p>nickname</p><input type="text" th:field="${loginForm.nick}">
-                <p>password</p><input type="password" th:field="${loginForm.password}">
+                <p>nick</p><input type="text" th:field="${loginForm.nick}">
+                <p>haslo</p><input type="password" th:field="${loginForm.password}">
                     <input type="submit" value="submit">
                     <!--uzytkownik podaje nick i haslo, dane sa sprawdzane w bazie USER czy istnieja
                     jesli tak to uzytkownik zostaje przekierowany do swojego panelu youAreLoggedIn.html w innym

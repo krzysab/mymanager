@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -9,8 +9,7 @@
           content="">
     <meta name="author"
           content="">
-    <link rel="icon"
-          href="../../favicon.ico">
+    <!--<link rel="icon" href="../../favicon.ico">-->
 
     <title>Dashboard Template for Bootstrap</title>
 
@@ -21,8 +20,7 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous">
     <!-- Custom styles for this template -->
-    <link href="dashboard.css"
-          rel="stylesheet">
+    <!--<link href="dashboard.css" rel="stylesheet">-->
     <title>settings</title>
 </head>
 <body>
@@ -38,13 +36,12 @@
                 <P>nick</P><input type="text">
                 <p>email</p><input type="email">
                 <p>haslo</p><input type="password">
-                <p>powtorz hasloo</p><input type="password">
+                <p>powtorz haslo</p><input type="password">
                 <input type="submit">
             </form>
             <p><a th:href="delete">usun konto</a></p>
             <!--uzytkownik zostanie przekierowany na strone usuniecia konta-->
-            <p><a th:href="youAreLoggedOut">logout</a></p>
-            <!--po kliknieciu linku logout uzytkownik zostaje przekierowany na strone wylogowania-->
+            <p><a th:href="youAreLoggedIn">wroc na strone uzytkownika</a></p>
 
         </main>
     </div>
