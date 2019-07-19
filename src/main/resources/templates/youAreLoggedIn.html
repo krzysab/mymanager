@@ -34,14 +34,17 @@
             <h6><p th:text="'NICK: ' + ${user.nick}" /></h6>
             <!--<h6><p th:text="'PASSWORD: ' + ${user.password}" /></h6>-->
             <h6><p th:text="'EMAIL: ' + ${user.getEmail()}" /></h6>
-            <!--<h6><p th:text="'NICKname: ' + ${loginForm.nick}" /></h6>
-            <h6><p th:text="'PASSWORD: ' + ${loginForm.password}" /></h6>
-            <h6><p th:text="'EMAIL: ' + ${loginForm.getEmail()}" /></h6>-->
-            <!--<h6><p th:text="'NICKname: ' + ${nick}" /></h6>
-            <h6><p th:text="'PASSWORD: ' + ${password}" /></h6>
-            <h6><p th:text="'EMAIL: ' + ${email}" /></h6>-->
+
             <p><a th:href="settings">ustawienia uzytkownika</a></p>
+            <p><a th:href="eventDetails">moj dzisiejszy event</a></p>
             <!--po kliknieciu uzytkownik zostaje przekierowany na swoja strone ustawien w tym zmiany hasla-->
+            <p>zalogowany uzytkownik powinien tu zobaczyc wszystkie eventy<br>
+                do tego powinien byc na bierzaco informowany o nowych eventach <br>
+                te ktore juz byly, dzisiejsze i przyszle a takze te na ktore jest <br>
+                badz byl zapisany, ponizej powinien wyswietlic sie bierzacy event <br>
+                klkniecie na bierzacym evencie na ktorym jest sie zapisanym powinna <br>
+                przeniesc na karte eventu ze wszstkimi jego opcjami, dodatkowo powinna <br>
+                byc mozliwosc komentowania po przez formularz</p>
             <p><a th:href="youAreLoggedOut">logout</a></p>
             <!--po kliknieciu linku logout uzytkownik zostaje przekierowany na strone wylogowanego uzytkownika-->
 

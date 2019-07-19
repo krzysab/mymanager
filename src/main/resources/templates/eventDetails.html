@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleaf.org">
+<!--<html lang="en">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
@@ -9,8 +9,7 @@
           content="">
     <meta name="author"
           content="">
-    <link rel="icon"
-          href="../../favicon.ico">
+    <!--<link rel="icon" href="../../favicon.ico">-->
 
     <title>Dashboard Template for Bootstrap</title>
 
@@ -23,22 +22,18 @@
     <!-- Custom styles for this template -->
     <link href="dashboard.css"
           rel="stylesheet">
-    <title>starting site</title>
+    <title>login page</title>
 </head>
 <body>
-
 <div class="container-fluid">
     <div class="row">
         <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
-
-            <h1>event manager</h1>
-            <p><a th:href="login">login</a></p>
-            <!--po kliknieciu linku login uzytkownik zostaje przekierowany na strone logowania-->
-            <p>tu powinna pojawic sie tabela z bierzacymi eventami <br>
-            niezalogowany user po kliknieciu na dowolny event powinien <br>
-                zostac przelaczony na jego szczegoly, chcac sie zapisac <br>
-                na event musi byc wpierw zalogowany</p>
-
+            <H1>event details</H1>
+            <p>tu pojawi sie bierzacy event na ktorym sie jest badz chce <br>
+            sie byc zapisanym badz che sie go zakomentowac, bierzace komentarze <br>
+            powinny sie pojawiac w czasie bycia zalogowanym</p>
+            <p><a th:href="youAreLoggedIn">wroc na strone uzytkownika</a></p>
+            </form>
         </main>
     </div>
 </div>

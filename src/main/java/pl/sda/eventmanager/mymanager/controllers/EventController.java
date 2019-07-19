@@ -53,6 +53,11 @@ public class EventController /*implements ApplicationRunner*/ {
         return new ModelAndView("index");
     }
 
+    @GetMapping("/eventDetails")
+    ModelAndView getEventDetails() {
+        return new ModelAndView("eventDetails");
+    }
+
     @GetMapping("/delete")
     ModelAndView getDelete() {
         return new ModelAndView("delete");
@@ -71,6 +76,11 @@ public class EventController /*implements ApplicationRunner*/ {
     @GetMapping("/settings")
     ModelAndView getSettings() {
         return new ModelAndView("settings");
+    }
+
+    @GetMapping("/adminPage")
+    ModelAndView getAdminPage() {
+        return new ModelAndView("adminPage");
     }
 
 //    @GetMapping("/youAreLoggedIn")
