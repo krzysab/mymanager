@@ -11,6 +11,7 @@ import pl.sda.eventmanager.mymanager.service.EventService;
 import pl.sda.eventmanager.mymanager.service.UserService;
 import org.springframework.stereotype.Controller;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,20 +65,28 @@ public class EventController /*implements ApplicationRunner*/ {
         return new ModelAndView("adminPage");
     }
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     public ModelAndView getEvents(){
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
-//        modelAndView.addObject("events", eventRepository.findAll());
-//        modelAndView.addObject(eventRepository.findByEventName("runmageddon"));
-//        Optional<Event> runmageddon = eventRepository.findByEventName("runmageddon");
-        List<Event> runmageddon = eventRepository.findAll();
-//        modelAndView.addObject("klucz" , runmageddon.orElseThrow(()->new RuntimeException("no such event")));
-        modelAndView.addObject("eventKey" , runmageddon.toArray());
-        System.out.println("model: " + modelAndView.getModel());
+        List<Event> eventList = eventRepository.findAll();
+        modelAndView.addObject("eventKey" , eventList.toArray());
+
+        return modelAndView;
+    }*/
+
+    @GetMapping("/")
+    public ModelAndView getEvents(){
+
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        Optional<Event> eventList = eventRepository.findEventsByEventBeginIsAfter(LocalDate.now());
+        modelAndView.addObject("eventKey" , eventList.orElseThrow(()-> new RuntimeException("no such event")));
 
         return modelAndView;
     }
+
 
     @GetMapping("/youAreLoggedOut")
     ModelAndView getYouAreLoggedOut() {

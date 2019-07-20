@@ -9,14 +9,19 @@ import pl.sda.eventmanager.mymanager.entity.Event;
 import pl.sda.eventmanager.mymanager.entity.User;
 import pl.sda.eventmanager.mymanager.repository.EventRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
+import pl.sda.eventmanager.mymanager.service.EventService;
+import pl.sda.eventmanager.mymanager.service.UserService;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Component
 public class DBStarter implements ApplicationRunner {
 
     private UserRepository userRepository;
+    private UserService userService;
     private EventRepository eventRepository;
+    private EventService eventService;
 
 //    @Autowired
 //    protected DBStarter(UserRepository userRepository){
@@ -24,26 +29,15 @@ public class DBStarter implements ApplicationRunner {
 //    }
 
     @Autowired
-    public DBStarter(UserRepository userRepository, EventRepository eventRepository) {
+    public DBStarter(UserRepository userRepository
+            , UserService userService
+            , EventRepository eventRepository
+            , EventService eventService) {
         this.userRepository = userRepository;
+        this.userService = userService;
         this.eventRepository = eventRepository;
+        this.eventService = eventService;
     }
-
-    /*@Override
-    public void run(ApplicationArguments args) throws Exception {
-
-        Fairy fairy = Fairy.create();
-
-        for(int i = 0; i < 10; i++){
-            Person person = fairy.person();
-            User user = new User();
-            user.setNick(person.getUsername());
-            user.setEmail(person.getEmail());
-            userRepository.save(user);
-            System.out.println(user.toString());
-        }
-
-    }*/
 
     public void run(ApplicationArguments args) throws Exception{
 
@@ -79,84 +73,34 @@ public class DBStarter implements ApplicationRunner {
                 new Event("runmageddon",
                         LocalDate.of(2019, 12, 20),
                         "43-100 Tychy Niepodleglosci 50"));
+
         eventRepository.save(
                 new Event("masakrator",
                         LocalDate.of(1999, 11, 03),
                 "43-190 Laziska Gorne Orzeska 23"));
+
         eventRepository.save(
                 new Event("bieg komandosa",
                         LocalDate.of(2003, 04, 27),
                         "45-230 Warszawa Marszalkowska 45"));
+
         eventRepository.save(
                 new Event("masakrator",
                         LocalDate.of(2007, 05, 31),
                         "99-400 Krakow Wawelska 330"));
 
+        Optional<Event> event = Optional.of(new Event());
+        event = eventRepository.findByEventName("runmageddon");
+        System.out.println(event);
+
+//        EventRepository repo = context.getBean(EventRepository.class);
+
+//        Event event = eventRepository.getOne(1);
+//        event.setEventInfo("hello mono moja macocha jest kosmitka");
+
+//        Event event1 = eventService.updateEvent(eventRepository.getOne(11));
+//        event1.setEventInfo("ala ma kota a kot ma ale");
 
     }
 
-//    public void run(ApplicationArguments args) throws Exception{
-
-//        BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv"));
-        /*String readLine = bufferedReader.readLine();
-        String[] string = readLine.split(" ");
-        int id = Integer.parseInt(string[0]);
-        String email = string[1];
-        String nick = string[2];
-        User user = new User(nick, email);
-        userRepository.save(user);
-        System.out.println(user.toString());*/
-
-        /**czytanie z pliku testUsers.csv danych przykladowych userow*/
-
-        /*for (int i = 0; i < 10; i++) {
-            String readLine = bufferedReader.readLine();
-            String[] string = readLine.split(" ");
-            int id = Integer.parseInt(string[0]);
-            String email = string[1];
-            String nick = string[2];
-            User user = new User(nick, email);
-            userRepository.save(user);
-            System.out.println(user.toString());
-        }*/
-
-        /*BufferedReader bufferedReader;
-        try {
-            bufferedReader = new BufferedReader(new FileReader("C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv"));
-            String readLine;
-            do {
-                readLine = bufferedReader.readLine();
-                String[] string = readLine.split(" ");
-                int id = Integer.parseInt(string[0]);
-                String email = string[1];
-                String nick = string[2];
-                User user = new User(nick, email);
-                userRepository.save(user);
-                System.out.println(user.toString());
-            } while (readLine != null);
-            bufferedReader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NumberFormatException e) {
-            e.printStackTrace();
-        }
-*/
-
-        /*Connection conn = null;
-        Statement stmt = null;
-
-        Class.forName("org.h2.Driver");
-        conn = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-        stmt = conn.createStatement();
-
-        stmt.execute("drop table if exists users");
-        stmt.execute("create table users (id int primary key, nick varchar(100), email varchar (100))");
-        stmt.execute("insert into users ( id, nick, email )     select (\"id\", \"nick\", \"email\")   from CSVREAD( 'C:\\Users\\krzysiek\\IdeaProjects\\mymanager\\src\\main\\resources\\templates\\testUsers.csv', 'id,nick,email', null ) ");
-        ResultSet rs = stmt.executeQuery("select * from users");
-
-        while (rs.next()) {
-            System.out.println("id " + rs.getInt("id") + " nick " + rs.getString("nick") + " email " + rs.getInt("email") );
-        }
-        stmt.close();*/
-//    }
 }

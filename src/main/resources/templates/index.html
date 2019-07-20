@@ -35,40 +35,30 @@
             <p><a th:href="login">login</a></p>
             <!--po kliknieciu linku login uzytkownik zostaje przekierowany na strone logowania-->
             <p>tu powinna pojawic sie tabela z bierzacymi eventami <br>
-            niezalogowany user po kliknieciu na dowolny event powinien <br>
-                zostac przelaczony na jego szczegoly, chcac sie zapisac <br>
-                na event musi byc wpierw zalogowany</p>
-
-            <!--<p th:text="${event.eventName}"></p>-->
-            <p th:text="${user}"></p>
-
+                niezalogowany user po kliknieciu na dowolny aktualny <br>
+                event powinien zostac przelaczony na jego szczegoly <br>
+                z opcja zalogowania sie</p>
 
             <div class="table-responsive">
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <!--eventName, eventBegin, eventAddress) {-->
-                        <th>event Name</th>
+                        <th>recent Event</th>
                         <th>event Begin</th>
                         <th>event Address</th>
+                        <th>event Details</th>
                     </tr>
                     </thead>
 
-                    <!--<p th:text="${klucz.eventName}"></p>-->
-                    <!--<p th:text="${eventKey.eventName}"></p>-->
-
-
                     <tbody th:each="eve: ${eventKey}">
-
                     <tr>
-                        <!--<td><input type="checkbox"></td>-->
-                        <td th:text="${eve.eventName}"></td>
-                        <td th:text="${eve.eventBegin}"></td>
-                        <td th:text="${eve.eventAddress}"></td>
+                        <td th:text="${eve.eventName}" ></td>
+                        <td th:text="${eve.eventBegin}" ></td>
+                        <td th:text="${eve.eventAddress}" ></td>
+                        <td><a th:href="eventDetails">szczegoly</a></td>
 
                         <!--<td><a th:href="@{'localhost:8080/eventDetails?id=' + ${event.eventName}}">szczegoly</a></td>-->
                     </tr>
-
                     </tbody>
                 </table>
 
