@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.eventmanager.mymanager.dto.LoginForm;
+import pl.sda.eventmanager.mymanager.repository.EventRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import pl.sda.eventmanager.mymanager.service.EventService;
 import pl.sda.eventmanager.mymanager.service.UserService;
@@ -17,24 +18,29 @@ import pl.sda.eventmanager.mymanager.service.UserService;
 import java.util.Arrays;
 
 @Controller
-@ComponentScan("pl.sda.eventmanager.mymanager")
+//@ComponentScan("pl.sda.eventmanager.mymanager")
 public class UserController {
 
     private UserRepository userRepository;
     private UserService userService;
     private EventService eventService;
+    private EventRepository eventRepository;
 
     @Autowired
-    public UserController(UserRepository userRepository, UserService userService, EventService eventService) {
+    public UserController(UserRepository userRepository
+                        , UserService userService
+                        , EventService eventService
+                        , EventRepository eventRepository) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.eventService = eventService;
+        this.eventRepository = eventRepository;
     }
 
-    @GetMapping("/")
+    /*@GetMapping("/")
     ModelAndView getHome() {
         return new ModelAndView("index");
-    }
+    }*/
 
     @GetMapping("login")
     public ModelAndView loginInForm(){

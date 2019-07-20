@@ -7,7 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import pl.sda.eventmanager.mymanager.entity.Event;
 import pl.sda.eventmanager.mymanager.entity.User;
-import pl.sda.eventmanager.mymanager.repository.EvetnRepository;
+import pl.sda.eventmanager.mymanager.repository.EventRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 
 import java.time.LocalDate;
@@ -16,7 +16,7 @@ import java.time.LocalDate;
 public class DBStarter implements ApplicationRunner {
 
     private UserRepository userRepository;
-    private EvetnRepository evetnRepository;
+    private EventRepository eventRepository;
 
 //    @Autowired
 //    protected DBStarter(UserRepository userRepository){
@@ -24,9 +24,9 @@ public class DBStarter implements ApplicationRunner {
 //    }
 
     @Autowired
-    public DBStarter(UserRepository userRepository, EvetnRepository evetnRepository) {
+    public DBStarter(UserRepository userRepository, EventRepository eventRepository) {
         this.userRepository = userRepository;
-        this.evetnRepository = evetnRepository;
+        this.eventRepository = eventRepository;
     }
 
     /*@Override
@@ -75,19 +75,19 @@ public class DBStarter implements ApplicationRunner {
          *
          * */
 
-        evetnRepository.save(
+        eventRepository.save(
                 new Event("runmageddon",
                         LocalDate.of(2019, 12, 20),
                         "43-100 Tychy Niepodleglosci 50"));
-        evetnRepository.save(
+        eventRepository.save(
                 new Event("masakrator",
                         LocalDate.of(1999, 11, 03),
                 "43-190 Laziska Gorne Orzeska 23"));
-        evetnRepository.save(
+        eventRepository.save(
                 new Event("bieg komandosa",
                         LocalDate.of(2003, 04, 27),
                         "45-230 Warszawa Marszalkowska 45"));
-        evetnRepository.save(
+        eventRepository.save(
                 new Event("masakrator",
                         LocalDate.of(2007, 05, 31),
                         "99-400 Krakow Wawelska 330"));

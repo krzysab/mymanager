@@ -7,7 +7,8 @@ import pl.sda.eventmanager.mymanager.entity.Event;
 import java.util.Optional;
 
 @Repository
-public interface EvetnRepository extends JpaRepository <Event, Integer>  {
+public interface EventRepository extends JpaRepository <Event, Integer>  {
 
     Optional<Event> findByEventName(String name);
+
 }

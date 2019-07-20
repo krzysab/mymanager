@@ -54,14 +54,18 @@
                     </tr>
                     </thead>
 
+                    <!--<p th:text="${klucz.eventName}"></p>-->
+                    <!--<p th:text="${eventKey.eventName}"></p>-->
 
-                    <!--<tbody th:each="events: ${event}">
+
+                    <tbody th:each="eve: ${eventKey}">
 
                     <tr>
-                        <td><input type="checkbox"></td>
-                        <td th:text="${events.eventName}"></td>
-                        <td th:text="${events.eventBegin}"></td>
-                        <td th:text="${events.eventAddress}"></td>-->
+                        <!--<td><input type="checkbox"></td>-->
+                        <td th:text="${eve.eventName}"></td>
+                        <td th:text="${eve.eventBegin}"></td>
+                        <td th:text="${eve.eventAddress}"></td>
+
                         <!--<td><a th:href="@{'localhost:8080/eventDetails?id=' + ${event.eventName}}">szczegoly</a></td>-->
                     </tr>
 

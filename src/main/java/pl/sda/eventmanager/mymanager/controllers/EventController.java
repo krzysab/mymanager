@@ -4,30 +4,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import pl.sda.eventmanager.mymanager.entity.Event;
+import pl.sda.eventmanager.mymanager.repository.EventRepository;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
 import pl.sda.eventmanager.mymanager.service.EventService;
 import pl.sda.eventmanager.mymanager.service.UserService;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+import java.util.Optional;
+
 @Controller
-@ComponentScan("pl.sda.eventmanager.mymanager")
+//@ComponentScan("pl.sda.eventmanager.mymanager")
 public class EventController /*implements ApplicationRunner*/ {
 
-    private final UserRepository userRepository;
-    private  final UserService userService;
+    private UserRepository userRepository;
+    private UserService userService;
     private EventService eventService;
+    private EventRepository eventRepository;
 
     @Autowired
-    public EventController(UserRepository userRepository, UserService userService, EventService eventService) {
+    public EventController(UserRepository userRepository
+                        , UserService userService
+                        , EventService eventService
+                        , EventRepository eventRepository) {
         this.userRepository = userRepository;
         this.userService = userService;
         this.eventService = eventService;
+        this.eventRepository = eventRepository;
     }
-
-    /*@GetMapping("/index")
-    ModelAndView getIndex() {
-        return new ModelAndView("index");
-    }*/
 
     @GetMapping("/eventDetails")
     ModelAndView getEventDetails() {
@@ -59,11 +64,18 @@ public class EventController /*implements ApplicationRunner*/ {
         return new ModelAndView("adminPage");
     }
 
-    @GetMapping("index")
+    @GetMapping("/")
     public ModelAndView getEvents(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
-        modelAndView.addObject("events", eventService.getEvents());
+//        modelAndView.addObject("events", eventRepository.findAll());
+//        modelAndView.addObject(eventRepository.findByEventName("runmageddon"));
+//        Optional<Event> runmageddon = eventRepository.findByEventName("runmageddon");
+        List<Event> runmageddon = eventRepository.findAll();
+//        modelAndView.addObject("klucz" , runmageddon.orElseThrow(()->new RuntimeException("no such event")));
+        modelAndView.addObject("eventKey" , runmageddon.toArray());
+        System.out.println("model: " + modelAndView.getModel());
+
         return modelAndView;
     }
 

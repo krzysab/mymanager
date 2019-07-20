@@ -5,7 +5,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pl.sda.eventmanager.mymanager.entity.Event;
-import pl.sda.eventmanager.mymanager.repository.EvetnRepository;
+import pl.sda.eventmanager.mymanager.repository.EventRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,22 +13,23 @@ import java.util.Optional;
 @Service
 public class EventService implements UserDetailsService {
 
-    private EvetnRepository evetnRepository;
+    private EventRepository eventRepository;
 
-    public EventService(EvetnRepository evetnRepository) {
-        this.evetnRepository = evetnRepository;
+    public EventService(EventRepository eventRepository) {
+        this.eventRepository = eventRepository;
     }
 
     //TODO zaimplemetowac inne metody przeszukujace baze danych EVENTOW
 
     @Override
     public UserDetails loadUserByUsername(String eventName) throws UsernameNotFoundException {
-        Optional<Event> eventDetails = evetnRepository.findByEventName(eventName);
+        Optional<Event> eventDetails = eventRepository.findByEventName(eventName);
         return (UserDetails) eventDetails.orElseThrow(()->new UsernameNotFoundException("event not found"));
     }
 
     public List<Event> getEvents(){
-        return evetnRepository.findAll();
+        return eventRepository.findAll();
     }
+
 
 }
