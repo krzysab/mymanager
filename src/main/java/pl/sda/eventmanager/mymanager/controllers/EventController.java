@@ -5,6 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
+import pl.sda.eventmanager.mymanager.service.EventService;
 import pl.sda.eventmanager.mymanager.service.UserService;
 import org.springframework.stereotype.Controller;
 
@@ -14,44 +15,19 @@ public class EventController /*implements ApplicationRunner*/ {
 
     private final UserRepository userRepository;
     private  final UserService userService;
+    private EventService eventService;
 
     @Autowired
-    public EventController(UserRepository userRepository, UserService userService) {
+    public EventController(UserRepository userRepository, UserService userService, EventService eventService) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.eventService = eventService;
     }
 
-//    @PostMapping("/addContact")
-//    public String addContactSubmit(@ModelAttribute Contact contact) {
-//        Contact newContact = contactService.addContact(contact);
-//        return "result";
-//    }
-//
-//    @GetMapping("/addContact")
-//    String addContactGet(@ModelAttribute Contact contact){
-//        return "addContact";
-//    }
-
-
-//    @GetMapping("/login")
-//    String loginIn(@ModelAttribute User user) {
-//    return "login";
-//}
-//
-//    @PostMapping("/login")
-//    public String loginSubmit(@ModelAttribute User user){
-//        return "youAreLoggedIn";
-//    }
-
-    @GetMapping("/")
-    ModelAndView getHome() {
-        return new ModelAndView("index");
-    }
-
-    @GetMapping("/index")
+    /*@GetMapping("/index")
     ModelAndView getIndex() {
         return new ModelAndView("index");
-    }
+    }*/
 
     @GetMapping("/eventDetails")
     ModelAndView getEventDetails() {
@@ -83,36 +59,17 @@ public class EventController /*implements ApplicationRunner*/ {
         return new ModelAndView("adminPage");
     }
 
-//    @GetMapping("/youAreLoggedIn")
-//    ModelAndView getYouAreLoggedIn() {
-//        return new ModelAndView("youAreLoggedIn");
-//    }
+    @GetMapping("index")
+    public ModelAndView getEvents(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("index");
+        modelAndView.addObject("events", eventService.getEvents());
+        return modelAndView;
+    }
 
     @GetMapping("/youAreLoggedOut")
     ModelAndView getYouAreLoggedOut() {
         return new ModelAndView("youAreLoggedOut");
     }
 
-    /*@GetMapping("/")
-    public ModelAndView getIndex(){
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index");
-        modelAndView.addObject("users", userService.getUsers());
-        return modelAndView;
-    }*/
-
-    /*@PostMapping("/loginVerify")
-    public String loginSubmit(@ModelAttribute User user) {
-        return "youAreLoggedIn";
-    }*/
-
-//    @Autowired
-//    public Controller(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
-
-   /* @Override
-    public void run(ApplicationArguments args) throws Exception {
-
-    }*/
 }

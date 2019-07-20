@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import pl.sda.eventmanager.mymanager.dto.LoginForm;
 import pl.sda.eventmanager.mymanager.repository.UserRepository;
+import pl.sda.eventmanager.mymanager.service.EventService;
 import pl.sda.eventmanager.mymanager.service.UserService;
 
 import java.util.Arrays;
@@ -21,17 +22,19 @@ public class UserController {
 
     private UserRepository userRepository;
     private UserService userService;
+    private EventService eventService;
 
     @Autowired
-    public UserController(UserRepository userRepository, UserService userService) {
+    public UserController(UserRepository userRepository, UserService userService, EventService eventService) {
         this.userRepository = userRepository;
         this.userService = userService;
+        this.eventService = eventService;
     }
 
-//    @GetMapping("login")
-//    public ModelAndView loginIn(){
-//        return new ModelAndView("login", "user", new User());
-//    }
+    @GetMapping("/")
+    ModelAndView getHome() {
+        return new ModelAndView("index");
+    }
 
     @GetMapping("login")
     public ModelAndView loginInForm(){
@@ -49,12 +52,6 @@ public class UserController {
 
         return modelAndView;
     }
-
-//    @PostMapping("login")
-//    public String postSubmit(@ModelAttribute User user) {
-//        user.setEmail(userService.readUserEmail(user));
-//        return "youAreLoggedIn";
-//    }
 
     @PostMapping("validation")
     public String postSubitForm(@ModelAttribute LoginForm loginForm) {

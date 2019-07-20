@@ -39,6 +39,35 @@
                 zostac przelaczony na jego szczegoly, chcac sie zapisac <br>
                 na event musi byc wpierw zalogowany</p>
 
+            <!--<p th:text="${event.eventName}"></p>-->
+            <p th:text="${user}"></p>
+
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <!--eventName, eventBegin, eventAddress) {-->
+                        <th>event Name</th>
+                        <th>event Begin</th>
+                        <th>event Address</th>
+                    </tr>
+                    </thead>
+
+
+                    <!--<tbody th:each="events: ${event}">
+
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td th:text="${events.eventName}"></td>
+                        <td th:text="${events.eventBegin}"></td>
+                        <td th:text="${events.eventAddress}"></td>-->
+                        <!--<td><a th:href="@{'localhost:8080/eventDetails?id=' + ${event.eventName}}">szczegoly</a></td>-->
+                    </tr>
+
+                    </tbody>
+                </table>
+
         </main>
     </div>
 </div>

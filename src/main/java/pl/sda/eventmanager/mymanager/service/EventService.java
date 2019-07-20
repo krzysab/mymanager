@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import pl.sda.eventmanager.mymanager.entity.Event;
 import pl.sda.eventmanager.mymanager.repository.EvetnRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -25,4 +26,9 @@ public class EventService implements UserDetailsService {
         Optional<Event> eventDetails = evetnRepository.findByEventName(eventName);
         return (UserDetails) eventDetails.orElseThrow(()->new UsernameNotFoundException("event not found"));
     }
+
+    public List<Event> getEvents(){
+        return evetnRepository.findAll();
+    }
+
 }
