@@ -9,3 +9,5 @@ Główne funkcje systemu:
 -Rejestracja kont
 -Wyszukiwarka imprez
 -Dzielenie się komentarzami uczestników imprez
+
+Częściowo działający szablon projektu znajduje się pod adresem https://myappmanager.herokuapp.com/
