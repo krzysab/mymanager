@@ -10,4 +10,5 @@ Główne funkcje systemu:
 - Wyszukiwarka imprez
 - Dzielenie się komentarzami uczestników imprez
 
-Częściowo działający szablon projektu znajduje się pod adresem https://myappmanager.herokuapp.com/
+Projekt wymaga ponownego przemyślenia/napisania. Jednakże częściowo działający szablon projektu znajduje się pod adresem https://myappmanager.herokuapp.com/
+
